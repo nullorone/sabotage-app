@@ -11,6 +11,7 @@ import {
 } from 'react-router-dom';
 
 import { routes } from '@/navigation/routes.tsx';
+import {Menu} from "@/components/Menu/Menu.tsx";
 
 function BackButtonManipulator() {
   const location = useLocation();
@@ -36,17 +37,20 @@ function BackButtonManipulator() {
   return null;
 }
 
-export const App: FC = () => (
-  <AppRoot
-    appearance={WebApp.colorScheme}
-    platform={['macos', 'ios'].includes(WebApp.platform) ? 'ios' : 'base'}
-  >
-    <BrowserRouter>
-      <BackButtonManipulator/>
-      <Routes>
-        {routes.map((route) => <Route key={route.path} {...route} />)}
-        <Route path='*' element={<Navigate to='/'/>}/>
-      </Routes>
-    </BrowserRouter>
-  </AppRoot>
-);
+export const App: FC = () => {
+  return (
+      <AppRoot
+          appearance={WebApp.colorScheme}
+          platform={['macos', 'ios'].includes(WebApp.platform) ? 'ios' : 'base'}
+      >
+        <BrowserRouter>
+          <BackButtonManipulator/>
+          <Routes>
+            {routes.map((route) => <Route key={route.path} {...route} />)}
+            <Route path='*' element={<Navigate to='/'/>}/>
+          </Routes>
+          {location.pathname !== '/' && <Menu />}
+        </BrowserRouter>
+      </AppRoot>
+  );
+}

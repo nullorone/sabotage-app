@@ -1,0 +1,75 @@
+.wrapper {
+    height: calc(100% - 100px);
+    position: relative;
+}
+
+.info {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.title {
+    margin: 0;
+    text-align: center;
+    color: #ffffff;
+}
+
+.subtitle {
+    font-size: 32px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.image {
+    display: block;
+    width: 144px;
+    height: 144px;
+    object-fit: cover;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.wheelOfFortune {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+.wheel {
+    display: block;
+}
+
+.spin {
+    font: 1.5em/0 sans-serif;
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    height: 30%;
+    margin: -15%;
+    background: #fff;
+    color: #fff;
+    box-shadow: 0 0 0 8px currentColor, 0 0px 15px 5px rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    transition: 0.8s;
+}
+
+.spin::after {
+    content: '';
+    position: absolute;
+    top: -17px;
+    border: 10px solid transparent;
+    border-bottom-color: currentColor;
+    border-top: none;
+}

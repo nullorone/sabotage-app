@@ -1,0 +1,31 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.image {
+    display: block;
+    width: 144px;
+    height: 144px;
+    object-fit: cover;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.priceWrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.price {
+    font-size: 14px;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.button {
+    width: 100%;
+}
