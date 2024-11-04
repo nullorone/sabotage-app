@@ -1,5 +1,5 @@
 import styles from './Wheel.module.css';
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 
 const sectors = [
     { color: '#f82', label: 'Lose' },
@@ -11,6 +11,8 @@ const sectors = [
     { color: '#bf0', label: '2' }
 ]
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 const rand = (m, M) => Math.random() * (M - m) + m
 
 export const Wheel = () => {
@@ -20,6 +22,8 @@ export const Wheel = () => {
     useEffect(() => {
         const tot = sectors.length
         const spinEl = document.querySelector('#spin')
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         const ctx = document.querySelector('#wheel')?.getContext('2d')
         const dia = ctx.canvas.width
         const rad = dia / 2
@@ -33,6 +37,8 @@ export const Wheel = () => {
 
         const getIndex = () => Math.floor(tot - (ang / TAU) * tot) % tot
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         function drawSector(sector, i) {
             const ang = arc * i
             ctx.save()
@@ -58,6 +64,8 @@ export const Wheel = () => {
             const sector = sectors[getIndex()]
             ctx.canvas.style.transform = `rotate(${ang - PI / 2}rad)`
             spinEl!.textContent = !angVel ? 'Крутить' : sector.label
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
             spinEl!.style.background = sector.color;
             setValue(sector.label)
             // if (valueRef.current) {
